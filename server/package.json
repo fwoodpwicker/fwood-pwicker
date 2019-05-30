@@ -3,7 +3,8 @@
         "start": "concurrently \"cd ../client && npm run dev \" \"node index.js\" "
     },
     "devDependencies": {
-        "concurrently": "^4.1.0"
+        "concurrently": "^4.1.0",
+        "nodemon": "^1.19.1"
     },
     "dependencies": {
         "express": "^4.17.1"
