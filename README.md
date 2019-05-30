@@ -1,9 +1,15 @@
 # Project FP
 
 ## How to run the project
+To run the dev server, cd into the server folder and run ```npm run start```.
+
+## Linting
+We will be using Standard JS linting. Make sure to including the extension on VsCode, or whatever text editor you are using.
+Details can be found [here](https://standardjs.com/)
 
 
 ## How to structure Vue Files
+Pending
 
 ## How to ideally commit
 Please write one commit every logical change. For example, if you are tasked with the following change --
@@ -48,8 +54,6 @@ Replaced old console.log with new sayName function
 ```
 
 ### Bad commits
-A solid commit log would be
-
 A bad commit would be
 ```
 commit.
@@ -75,7 +79,7 @@ Created function sayName.
 Replaced old console.log with new sayName function
 ```
 #### Team
-Jack Chen
-Shelly Huang
-Brittany Cho
-Suchwinder Singh
+Jack Chen<br>
+Shelly Huang<br>
+Brittany Cho<br>
+Suchwinder Singh<br>
