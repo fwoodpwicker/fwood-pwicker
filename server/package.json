@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "start": "concurrently \"cd ../client && npm run dev \" \"node index.js\" "
+    },
+    "dependencies": {
+        "concurrently": "^4.1.0",
+        "express": "^4.17.1"
+    }
+}
