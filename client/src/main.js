@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueX from 'vuex'
 import App from './App.vue'
 import Home from './components/Home.vue'
 import Settings from './components/Settings.vue'
-
 Vue.config.productionTip = false
 Vue.use(VueRouter)
-Vue.use(VueX)
 
 const routes = [
   { path: '*', redirect: '/home' },
