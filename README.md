@@ -82,3 +82,4 @@ Replaced old console.log with new sayName function
 Jack Chen<br>
 Shelly Huang<br>
 Suchwinder Singh<br>
+Brittany Cho<br>
