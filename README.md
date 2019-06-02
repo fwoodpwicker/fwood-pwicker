@@ -81,3 +81,4 @@ Replaced old console.log with new sayName function
 #### Team
 Jack Chen<br>
 Shelly Huang<br>
+Brittany Cho<br>
