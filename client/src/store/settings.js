@@ -5,14 +5,14 @@ Vue.use(VueX)
 export const settings = new VueX.Store({
   state: {
     numPlayers: 0,
-    numTokens: 0
+    totalTokens: 10
   },
   mutations: {
     setNumPlayers (state, num) { state.numPlayers = num },
-    setNumTokens (state, num) { state.numTokens = num }
+    setTotalTokens (state, num) { state.totalTokens = num }
   },
   getters: {
     numPlayers: state => state.numPlayers,
-    numTokens: state => state.numTokens
+    totalTokens: state => state.totalTokens
   }
 })
