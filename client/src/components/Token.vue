@@ -1,18 +1,19 @@
 <template>
   <div>
     <TokensLeft/>
-    <TokenPicks/>
+    <TokenChoices :cost=1 choice='pick'/>
+    <TokenChoices :cost=1 choice='ban'/>
   </div>
 </template>
 
 <script>
-import TokenPicks from './Token-Picks.vue'
 import TokensLeft from './Token-TokensLeft.vue'
+import TokenChoices from './Token-Choices.vue'
 
 export default {
   components: {
-    TokenPicks,
-    TokensLeft
+    TokensLeft,
+    TokenChoices
   }
 }
 </script>

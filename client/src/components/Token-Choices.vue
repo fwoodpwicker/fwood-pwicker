@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="numPicks">
-      Picks: {{ numPicks }}
+    <div id="numChoice">
+      {{ choice }}: {{ numChoice }}
     </div>
     <div id="increment" v-on:click="increment">
       Increase
@@ -18,12 +18,13 @@ import { settings } from '../store/settings.js'
 import { EventBus } from '../main.js'
 
 export default {
+  props: [ 'choice', 'cost' ],
   data () {
     return {
-      numPicks: 0,
-      pickCost: 1,
+      numChoice: 0,
       totalTokens: settings.getters.totalTokens,
-      currTokens: settings.getters.totalTokens
+      currTokens: settings.getters.totalTokens,
+      choiceCost: this.cost
     }
   },
   mounted () {
@@ -31,15 +32,15 @@ export default {
   },
   methods: {
     increment () {
-      if (this.currTokens - this.pickCost >= 0) {
-        EventBus.$emit('increment', this.pickCost)
-        this.numPicks++
+      if (this.currTokens - this.choiceCost >= 0) {
+        EventBus.$emit('increment', this.choiceCost)
+        this.numChoice++
       }
     },
     decrement () {
-      if (this.currTokens + this.pickCost <= this.totalTokens) {
-        EventBus.$emit('decrement', this.pickCost)
-        this.numPicks--
+      if (this.currTokens + this.choiceCost <= this.totalTokens && this.numChoice-1 >= 0) {
+        EventBus.$emit('decrement', this.choiceCost)
+        this.numChoice--
       }
     }
   }
