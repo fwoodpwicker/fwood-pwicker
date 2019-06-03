@@ -21,6 +21,7 @@ export default {
   methods: {
     submit () {
       settings.commit('setNumPlayers', this.numPlayers)
+      this.$router.push('pick')
     }
   }
 }
