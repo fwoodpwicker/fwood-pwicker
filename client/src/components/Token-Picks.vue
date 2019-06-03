@@ -26,11 +26,13 @@ export default {
       currTokens: settings.getters.totalTokens
     }
   },
+  mounted () {
+    EventBus.$on('tokens-left', (tokens) => { this.currTokens = tokens })
+  },
   methods: {
     increment () {
       if (this.currTokens - this.pickCost >= 0) {
         EventBus.$emit('increment', this.pickCost)
-        this.currTokens -= this.pickCost
         this.numPicks++
       }
     },
@@ -38,7 +40,6 @@ export default {
       if (this.currTokens + this.pickCost <= this.totalTokens) {
         EventBus.$emit('decrement', this.pickCost)
         this.numPicks--
-        this.currTokens += this.pickCost
       }
     }
   }

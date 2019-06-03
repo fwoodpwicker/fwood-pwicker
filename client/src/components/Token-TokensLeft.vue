@@ -15,8 +15,15 @@ export default {
     }
   },
   mounted () {
-    EventBus.$on('increment', cost => this.tokens -= cost )
-    EventBus.$on('decrement', cost => this.tokens += cost )
+    EventBus.$on('increment', (cost) => {
+      this.tokens -= cost
+      EventBus.$emit('tokens-left', this.tokens)
+    })
+
+    EventBus.$on('decrement', (cost) => {
+      this.tokens += cost
+      EventBus.$emit('tokens-left', this.tokens)
+    })
   }
 }
 </script>
