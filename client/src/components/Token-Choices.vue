@@ -38,7 +38,7 @@ export default {
       }
     },
     decrement () {
-      if (this.currTokens + this.choiceCost <= this.totalTokens && this.numChoice-1 >= 0) {
+      if (this.currTokens + this.choiceCost <= this.totalTokens && this.numChoice - 1 >= 0) {
         EventBus.$emit('decrement', this.choiceCost)
         this.numChoice--
       }
