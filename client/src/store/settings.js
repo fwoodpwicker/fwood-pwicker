@@ -2,7 +2,7 @@ import VueX from 'vuex'
 import Vue from 'vue'
 Vue.use(VueX)
 
-export const settings = new VueX.Store({
+export const settingsStore = new VueX.Store({
   state: {
     numPlayers: 0,
     totalTokens: 10

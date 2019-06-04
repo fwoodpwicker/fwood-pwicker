@@ -10,7 +10,7 @@
 <script>
 import TokensLeft from './Token-TokensLeft.vue'
 import TokenChoices from './Token-Choices.vue'
-
+import { settings } from '../store/settings.js'
 export default {
   data () {
     return {
@@ -23,11 +23,20 @@ export default {
     TokenChoices
   },
   computed: {
-    // adjust token costs here
-    tokenCalculation: () => {
-      this.pickCost = 1
-      this.banCost = 1
+    // adjust num tokens given to each player 
+    totalTokenCalculation: (cb) => {
+
+      // change 10 
+      // settings.commit('setTotalTokens', 10)
+    },
+    // adjust pick/ban costs here
+    choiceCostCalculation: () => {
+      
     }
+  },
+  mounted () {
+    this.totalTokenCalculation()
+    this.choiceCostCalculation()
   }
 }
 </script>

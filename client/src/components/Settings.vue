@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { settings } from '../store/settings.js'
+import { settingsStore } from '../store/settings.js'
 export default {
   data () {
     return {
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     submit () {
-      settings.commit('setNumPlayers', this.numPlayers)
+      settingsStore.commit('setNumPlayers', this.numPlayers)
       this.$router.push('pick')
     }
   }

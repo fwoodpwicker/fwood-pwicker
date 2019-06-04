@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { settings } from '../store/settings.js'
+import { settingsStore } from '../store/settings.js'
 import { EventBus } from '../main.js'
 
 export default {
@@ -22,8 +22,8 @@ export default {
   data () {
     return {
       numChoice: 0,
-      totalTokens: settings.getters.totalTokens,
-      currTokens: settings.getters.totalTokens,
+      totalTokens: settingsStore.getters.totalTokens,
+      currTokens: settingsStore.getters.totalTokens,
       choiceCost: this.cost
     }
   },

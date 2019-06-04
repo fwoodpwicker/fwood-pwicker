@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import { settings } from '../store/settings.js'
+import { settingsStore } from '../store/settings.js'
 import { EventBus } from '../main.js'
 
 export default {
   data () {
     return {
-      tokens: settings.getters.totalTokens
+      tokens: settingsStore.getters.totalTokens
     }
   },
   mounted () {
