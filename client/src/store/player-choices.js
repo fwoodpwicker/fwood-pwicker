@@ -1,5 +1,4 @@
 import VueX from 'vuex'
-// import { settingsStore } from './settings.js'
 
 export const playerChoiceStore = new VueX.Store({
   modules: {

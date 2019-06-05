@@ -42,15 +42,13 @@ export default {
     decrement () {
       if (this.currTokens + this.choiceCost <= this.totalTokens && this.numChoice - 1 >= 0) {
         EventBus.$emit('decrement', this.choiceCost)
-        
+
         this.numChoice--
         this.emitChoiceCount()
       }
     },
     emitChoiceCount () {
-      this.choice == 'pick' ? 
-      EventBus.$emit('numPicks', this.numChoice) :
-      EventBus.$emit('numBans', this.numChoice)
+      this.choice === 'pick' ? EventBus.$emit('numPicks', this.numChoice) : EventBus.$emit('numBans', this.numChoice)
     }
   }
 }

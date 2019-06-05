@@ -5,7 +5,7 @@
     <br/>
     <TokenChoices :cost='banCost' choice='ban'/>
 
-    <button @click='singleDevice ? singleSubmit : multiSubmit'>Next</button>
+    <button @click='singleSubmit'>Next</button>
   </div>
 </template>
 
@@ -13,10 +13,11 @@
 import TokensLeft from './Token-TokensLeft.vue'
 import TokenChoices from './Token-Choices.vue'
 import { settingsStore } from '../store/settings.js'
-import { playerChoiceStore } from '../store/player-choices.js'
+// import { playerChoiceStore } from '../store/player-choices.js'
 import { EventBus } from '../main.js'
 
 export default {
+  props: ['decMade'],
   data () {
     return {
       pickCost: 1,
@@ -48,13 +49,15 @@ export default {
     singleSubmit () {
       // get values form other components x
 
-      // 1. put picks and bans into storage
+      // 1. put picks and bans into storage 
       // 2. put choices into temporary variable
 
       // 1- put each person into separate modules
-      playerChoiceStore.registerModule()
-      console.log('bans', this.numBans)
-      console.log('picks', this.numPicks)
+      // playerChoiceStore.registerModule('player')
+
+      // registered everyone's decisions
+      if (this.decisionsMade) this.$router.push({ path: '/pick', props: { decMade: this.decisionsMade-- } })
+      else console.log('onto next route')
     }
   },
   mounted () {
