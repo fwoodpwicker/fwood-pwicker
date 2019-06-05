@@ -24,7 +24,6 @@ export default {
       banCost: 1,
       numPicks: 0,
       numBans: 0,
-      singleDevce: true,
       decisionsMade: settingsStore.getters.numPlayers
     }
   },
@@ -49,13 +48,22 @@ export default {
     singleSubmit () {
       // get values form other components x
 
-      // 1. put picks and bans into storage 
+      // 1. put picks and bans into storage
       // 2. put choices into temporary variable
 
       // 1- put each person into separate modules
-      // playerChoiceStore.registerModule('player')
+      // let playerRegistration = {
+      //   state: {
+      //     name: 'something random',
 
-      // registered everyone's decisions
+      //     numPicks: this.numPicks,
+      //     numBans: this.numBans
+      //   }
+      // }
+
+      // playerChoiceStore.registerModule('player'+this.decisionsMade, playerRegistration)
+
+      // if registered everyone's decisions
       if (this.decisionsMade) this.$router.push({ path: '/pick', props: { decMade: this.decisionsMade-- } })
       else console.log('onto next route')
     }
