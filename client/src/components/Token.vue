@@ -12,19 +12,17 @@
 <script>
 import TokensLeft from './Token-TokensLeft.vue'
 import TokenChoices from './Token-Choices.vue'
-import { settingsStore } from '../store/settings.js'
 // import { playerChoiceStore } from '../store/player-choices.js'
 import { EventBus } from '../main.js'
 
 export default {
-  props: ['decMade'],
+  props: ['decisionsMade'],
   data () {
     return {
       pickCost: 1,
       banCost: 1,
       numPicks: 0,
-      numBans: 0,
-      decisionsMade: settingsStore.getters.numPlayers
+      numBans: 0
     }
   },
   components: {
@@ -46,6 +44,7 @@ export default {
   methods: {
     // for single person
     singleSubmit () {
+      console.log('dec made', this.decisionsMade)
       // get values form other components x
 
       // 1. put picks and bans into storage
@@ -64,7 +63,7 @@ export default {
       // playerChoiceStore.registerModule('player'+this.decisionsMade, playerRegistration)
 
       // if registered everyone's decisions
-      if (this.decisionsMade) this.$router.push({ path: '/pick', props: { decMade: this.decisionsMade-- } })
+      if (this.decisionsMade) this.$router.push({ name: 'pick', params: { decisionsMade: this.decisionsMade - 1 } })
       else console.log('onto next route')
     }
   },
