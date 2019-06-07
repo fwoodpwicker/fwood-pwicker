@@ -1,11 +1,16 @@
 <template>
   <div id ='home'>
-      <router-link to='/settings'>Single Device</router-link>
+    <Hero />
+    <router-link to='/settings'>Single Device</router-link>
   </div>
 </template>
 
 <script>
+import Hero from './Home-Hero.vue'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Hero
+  }
 }
 </script>
