@@ -4,6 +4,7 @@ import App from './App.vue'
 import Home from './components/Home.vue'
 import Settings from './components/Settings.vue'
 import Tokens from './components/Token.vue'
+import Page404 from './components/Page404.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -11,10 +12,11 @@ Vue.use(VueRouter)
 export const EventBus = new Vue()
 
 const routes = [
-  { path: '*', redirect: '/home' },
+  { path: '', component: Home },
   { path: '/home', component: Home },
   { path: '/settings', component: Settings },
-  { path: '/pick', component: Tokens }
+  { path: '/pick', component: Tokens },
+  { path: '*', component: Page404 }
 ]
 
 const router = new VueRouter({
