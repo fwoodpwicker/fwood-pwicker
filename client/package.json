@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "uuid": "^3.3.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vuex": "^3.1.1"
@@ -20,6 +21,7 @@
     "@vue/cli-service": "^3.8.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
+    "eslint-plugin-html": "^5.0.5",
     "eslint-plugin-vue": "^5.0.0",
     "standard": "^12.0.1",
     "vue-template-compiler": "^2.6.10"
@@ -31,9 +33,12 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "standard"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
