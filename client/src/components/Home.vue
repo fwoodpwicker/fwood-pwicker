@@ -1,7 +1,7 @@
 <template>
   <div id ='home'>
     <Hero />
-    <router-link to='/settings'>Single Device</router-link>
+    <a class='login' href='#'> Login </a>
   </div>
 </template>
 
@@ -14,3 +14,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  #home {
+    overflow-y: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 25px;
+    color: white;
+    font-weight: bold;
+    background-color: orange;
+    padding: 10px 50px;
+    text-decoration: none;
+  }
+</style>
