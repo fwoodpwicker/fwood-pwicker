@@ -1,9 +1,12 @@
 <template>
-  <div @click='exitEditing()'>
-    <span v-for="i in names" v-bind:key="i">
-      <span v-if='!editing[i]'>{{i}}</span>
-      <input v-else type='text' v-model='editName'>
-      <img @click='updatingName(i)' height=15 width=15 src='../../public/edit-icon.png'>
+  <div>
+    <span v-for="(item, index) in names" v-bind:key="index">
+      <span v-if='!item.editing'>
+        {{item.name}} <img @click='updatingName(index)' height=15 width=15 src='../assets/edit-icon.png'>
+      </span>
+      <span v-else>
+        <input v-model='names[index].name' type='text'><img @click='updatingName(index)' height=15 width=15 src='../assets/exit-icon.jpg'>
+      </span>
       <br/>
     </span>
   </div>
@@ -14,26 +17,20 @@ export default {
   props: ['value'],
   data () {
     return {
-      names: [],
-      editing: {}
+      names: []
     }
   },
   methods: {
     updatePlayers () {
       this.names = []
-      this.clearEditing()
 
       for (let i = 1; i <= this.value; i++) {
-        this.names.push('Player ' + i)
-        // use $set for reactive change
-        this.$set(this.editing, this.names[i - 1], false)
+        this.names.push({ name: 'Player ' + i, editing: false })
       }
     },
     updatingName (index) {
-      this.$set(this.editing, index, true)
-    },
-    clearEditing () {
-      Object.keys(this.editing).forEach(i => delete this.editing[i])
+      // use $set for forced reactive change
+      this.$set(this.names[index], 'editing', !this.names[index].editing)
     }
   },
   watch: {
