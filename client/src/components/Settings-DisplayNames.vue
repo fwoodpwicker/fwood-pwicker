@@ -5,7 +5,8 @@
         {{item.name}} <img @click='updatingName(index)' height=15 width=15 src='../assets/edit-icon.png'>
       </span>
       <span v-else>
-        <input v-model='names[index].name' type='text'><img @click='updatingName(index)' height=15 width=15 src='../assets/exit-icon.jpg'>
+        <input v-model='names[index].name' type='text'>
+        <img @click='updatingName(index)' height=15 width=15 src='../assets/exit-icon.jpg'>
       </span>
       <br/>
     </span>
@@ -25,6 +26,7 @@ export default {
       this.names = []
 
       for (let i = 1; i <= this.value; i++) {
+        // replace name with random name function
         this.names.push({ name: 'Player ' + i, editing: false })
       }
     },
