@@ -42,7 +42,7 @@ export default {
         }
         playerChoiceStore.registerModule(uuid(), playerRegistration)
       }
-      // this.$router.push({ name: 'pick', params: { decisionsMade: settingsStore.getters.numPlayers } })
+      this.$router.push('/pick')
     }
   }
 }
