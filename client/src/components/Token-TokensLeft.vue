@@ -17,11 +17,10 @@ export default {
   },
   mounted () {
     EventBus.$on('get-curr-user', (user) => { this.currUser = user; this.updateTokenCount() })
-    EventBus.$on('update-choice', () => { console.log('updated tokens'); this.updateTokenCount() })
+    EventBus.$on('update-choice', () => { this.updateTokenCount() })
   },
   methods: {
     updateTokenCount () {
-      // this.$set(this.tokens, playerChoiceStore.state[this.currUser].tokensLeft)
       this.tokens = playerChoiceStore.state[this.currUser].tokensLeft
     }
   }
