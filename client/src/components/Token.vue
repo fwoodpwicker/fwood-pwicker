@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>{{ getUsersName }}</h1>
     <TokensLeft/>
     <TokenChoices :cost='pickCost' choice='pick'/>
     <br/>
@@ -30,6 +31,9 @@ export default {
     TokenChoices
   },
   computed: {
+    getUsersName () {
+      return playerChoiceStore.state[Object.keys(playerChoiceStore.state)[this.currPlayer]].name
+    }
     // // adjust pick/ban costs here
     // choiceCostCalculation: function () {
 
