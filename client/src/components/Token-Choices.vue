@@ -31,14 +31,19 @@ export default {
   },
   mounted () {
     EventBus.$on('get-curr-user', (user) => {
-      this.currUser = user
-      this.userStore = playerChoiceStore.state[this.currUser]
-      this.currTokens = this.userStore.tokensLeft
+      console.log('changed user')
+      this.updateUser(user)
     })
 
     EventBus.$on('update-choice-count', () => { this.currTokens = this.userStore.tokensLeft })
   },
   methods: {
+    updateUser (user) {
+      this.currUser = user
+      this.userStore = playerChoiceStore.state[this.currUser]
+      this.currTokens = this.userStore.tokensLeft
+      this.choice === 'pick' ? this.numChoice = this.userStore.picks : this.numChoice = this.userStore.bans
+    },
     increment () {
       if (this.currTokens - this.cost >= 0) {
         this.updateChoiceCount(1)
