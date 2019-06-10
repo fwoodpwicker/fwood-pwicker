@@ -34,10 +34,23 @@ export default {
       // register all players when number has been set
       for (let i of this.$refs.names.names) {
         let playerRegistration = {
+          namespaced: true,
           state: {
             name: i.name,
             picks: 0,
-            bans: 0
+            bans: 0,
+            tokensLeft: settingsStore.getters.totalTokens
+          },
+          mutations: {
+            setPicks (state, picks) {
+              state.picks = picks
+            },
+            setBans (state, bans) {
+              state.bans = bans
+            },
+            setTokensLeft (state, tokensLeft) {
+              state.tokensLeft = tokensLeft
+            }
           }
         }
         playerChoiceStore.registerModule(uuid(), playerRegistration)
