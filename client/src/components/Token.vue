@@ -42,17 +42,17 @@ export default {
   methods: {
     previousPlayer () {
       this.currPlayer--
-      this.emitCurrPlayer()
+      this.updateCurrPlayer()
     },
     nextPlayer () {
       if (this.currPlayer !== Object.keys(playerChoiceStore.state).length - 1) {
         this.currPlayer++
-        this.emitCurrPlayer()
+        this.updateCurrPlayer()
       } else {
         console.log('go to pick page')
       }
     },
-    emitCurrPlayer () {
+    updateCurrPlayer () {
       EventBus.$emit('get-curr-user', Object.keys(playerChoiceStore.state)[this.currPlayer])
     }
   },
