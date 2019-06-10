@@ -57,7 +57,7 @@ export default {
     }
   },
   mounted () {
-    this.emitCurrPlayer()
+    this.updateCurrPlayer()
   }
 }
 </script>
