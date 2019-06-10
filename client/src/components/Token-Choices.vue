@@ -26,8 +26,7 @@ export default {
       userStore: '',
       numChoice: 0,
       totalTokens: settingsStore.getters.totalTokens,
-      currTokens: 0,
-      choiceCost: this.cost
+      currTokens: 0
     }
   },
   mounted () {
@@ -41,13 +40,12 @@ export default {
   },
   methods: {
     increment () {
-      console.log('curr token', this.currTokens)
-      if (this.currTokens - this.choiceCost >= 0) {
+      if (this.currTokens - this.cost >= 0) {
         this.updateChoiceCount(1)
       }
     },
     decrement () {
-      if (this.currTokens + this.choiceCost <= this.totalTokens && this.numChoice - 1 >= 0) {
+      if (this.currTokens + this.cost <= this.totalTokens && this.numChoice - 1 >= 0) {
         this.updateChoiceCount(-1)
       }
     },
@@ -63,7 +61,7 @@ export default {
         playerChoiceStore.commit(this.currUser + '/setBans', this.userStore.bans + (factor * 1))
       }
 
-      playerChoiceStore.commit(this.currUser + '/setTokensLeft', this.userStore.tokensLeft + (factor * -1 * this.choiceCost))
+      playerChoiceStore.commit(this.currUser + '/setTokensLeft', this.userStore.tokensLeft + (factor * -1 * this.cost))
       // to prevent delayed update of currTokens on pick and ban component)
       EventBus.$emit('update-choice-count')
       this.updateChoice()
