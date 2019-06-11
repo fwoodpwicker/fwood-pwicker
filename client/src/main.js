@@ -5,7 +5,7 @@ import Home from './components/Home.vue'
 import Settings from './components/Settings.vue'
 import Tokens from './components/Token.vue'
 import Page404 from './components/Page404.vue'
-
+import Pick from './components/Pick.vue'
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 
@@ -15,7 +15,8 @@ const routes = [
   { path: '', component: Home },
   { path: '/home', component: Home },
   { path: '/settings', component: Settings },
-  { path: '/pick', component: Tokens },
+  { path: '/tokens', component: Tokens },
+  { path: '/pick', component: Pick },
   { path: '*', component: Page404 }
 ]
 

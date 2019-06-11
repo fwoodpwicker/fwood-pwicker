@@ -55,7 +55,7 @@ export default {
         }
         playerChoiceStore.registerModule(uuid(), playerRegistration)
       }
-      this.$router.push('/pick')
+      this.$router.push('/tokens')
     }
   }
 }

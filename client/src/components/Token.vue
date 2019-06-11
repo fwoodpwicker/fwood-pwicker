@@ -18,7 +18,6 @@ import { playerChoiceStore } from '../store/player-choices.js'
 import { EventBus } from '../main.js'
 
 export default {
-  props: ['decisionsMade'],
   data () {
     return {
       pickCost: 1,
@@ -49,7 +48,7 @@ export default {
         this.currPlayer++
         this.updateCurrPlayer()
       } else {
-        console.log('go to pick page')
+        this.$router.push('/pick')
       }
     },
     updateCurrPlayer () {
