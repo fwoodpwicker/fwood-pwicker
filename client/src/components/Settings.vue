@@ -32,11 +32,11 @@ export default {
       settingsStore.commit('setNumPlayers', this.numPlayers)
 
       // register all players when number has been set
-      for (let i of this.$refs.names.names) {
-        let playerRegistration = {
+      this.$refs.names.names.forEach((player) => {
+        const playerRegistration = {
           namespaced: true,
           state: {
-            name: i.name,
+            name: player.name,
             picks: 0,
             bans: 0,
             tokensLeft: settingsStore.getters.totalTokens
@@ -54,7 +54,7 @@ export default {
           }
         }
         playerChoiceStore.registerModule(uuid(), playerRegistration)
-      }
+      })
       this.$router.push('/tokens')
     }
   }

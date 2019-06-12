@@ -31,7 +31,11 @@ export default {
   },
   computed: {
     getUsersName () {
-      return playerChoiceStore.state[Object.keys(playerChoiceStore.state)[this.currPlayer]].name
+      const players = Object.keys(playerChoiceStore.state)
+      const player = players[this.currPlayer]
+      const playerInStore = playerChoiceStore.state[player]
+
+      return playerInStore.name
     }
     // // adjust pick/ban costs here
     // choiceCostCalculation: function () {
