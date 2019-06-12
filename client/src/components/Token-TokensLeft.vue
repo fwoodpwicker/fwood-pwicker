@@ -5,25 +5,24 @@
 </template>
 
 <script>
-import { settingsStore } from '../store/settings.js'
+import { playerChoiceStore } from '../store/player-choices.js'
 import { EventBus } from '../main.js'
 
 export default {
   data () {
     return {
-      tokens: settingsStore.getters.totalTokens
+      tokens: 0,
+      currUser: ''
     }
   },
   mounted () {
-    EventBus.$on('increment', (cost) => {
-      this.tokens -= cost
-      EventBus.$emit('tokens-left', this.tokens)
-    })
-
-    EventBus.$on('decrement', (cost) => {
-      this.tokens += cost
-      EventBus.$emit('tokens-left', this.tokens)
-    })
+    EventBus.$on('get-curr-user', (user) => { this.currUser = user; this.updateTokenCount() })
+    EventBus.$on('update-choice', () => { this.updateTokenCount() })
+  },
+  methods: {
+    updateTokenCount () {
+      this.tokens = playerChoiceStore.state[this.currUser].tokensLeft
+    }
   }
 }
 </script>
