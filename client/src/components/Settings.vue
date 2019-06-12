@@ -33,7 +33,7 @@ export default {
 
       // register all players when number has been set
       this.$refs.names.names.forEach((player) => {
-        let playerRegistration = {
+        const playerRegistration = {
           state: {
             name: player.name,
             picks: 0,
