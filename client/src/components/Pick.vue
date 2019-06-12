@@ -32,8 +32,9 @@ export default {
     },
     removePick (index) {
       // remove element by index
+      this.picks.splice(index, 1)
+      this.updatePicks()
     }
-    
   }
 }
 </script>
