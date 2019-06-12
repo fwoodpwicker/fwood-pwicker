@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span v-for="(item, index) in names" v-bind:key="index">
+    <span v-for='(item, index) in names' v-bind:key='index'>
       <span v-if='!item.editing'>
         {{item.name}} <img @click='updatingName(index)' height=15 width=15 src='../assets/edit-icon.png'>
       </span>
