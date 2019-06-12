@@ -1,25 +1,32 @@
 <template>
   <div>
-    Input a place/category: <input v-model= 'inputPick' type='text'>
-    <button @click='addPick'>Add</button>
+    <AddPick />
+    <DisplayPicks />
     <br/>
   </div>
 </template>
 <script>
-// import { playerChoiceStore } from '../store/player-choices.js'
+import { playerChoiceStore } from '../store/player-choices.js'
+import DisplayPicks from './Pick-DisplayPicks.vue'
+import AddPick from './Pick-AddPick.vue'
 
 export default {
+  components: {
+    DisplayPicks,
+    AddPick
+  },
   data () {
     return {
-      currPlayer: 0,
-      inputPick: '',
-      picks: []
+      currPlayer: 0
     }
   },
   methods: {
-    addPick () {
-      this.picks.push(this.inputPick)
-      this.updatePicks()
+    getUsersName () {
+      const players = Object.keys(playerChoiceStore.state)
+      const player = players[this.currPlayer]
+      const playerInStore = playerChoiceStore.state[player]
+
+      return playerInStore.name
     }
   }
 }
