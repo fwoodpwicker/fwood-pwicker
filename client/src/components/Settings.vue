@@ -6,7 +6,7 @@
     name='num_players'
     v-model='numPlayers'/>
 
-    <DisplayNames ref='names' v-model='numPlayers'/>
+    <DisplayNames ref='players' v-model='numPlayers'/>
     <br/>
     <button @click="submit">Submit</button>
   </div>
@@ -32,7 +32,7 @@ export default {
       settingsStore.commit('setNumPlayers', this.numPlayers)
 
       // register all players when number has been set
-      this.$refs.names.names.forEach((player) => {
+      this.$refs.players.names.forEach((player) => {
         const playerRegistration = {
           state: {
             name: player.name,
