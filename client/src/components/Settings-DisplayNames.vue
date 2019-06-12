@@ -18,7 +18,7 @@ export default {
   props: ['value'],
   data () {
     return {
-      names: []
+      names: [] // array of objects- { name, editing }
     }
   },
   methods: {
